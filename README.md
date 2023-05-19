@@ -1,2 +1,2 @@
-# GPTandME
-Just a collection of scripts from chatGPT enhanced modified by myself
+# QuickCoding
+Just a collection of scripts and small coding projects
