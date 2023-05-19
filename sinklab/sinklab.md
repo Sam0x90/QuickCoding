@@ -5,3 +5,4 @@ It is not meant for lab or testing only.
 # Notes
 - Only handle HTTP request
 - Extract and log host as well as User-Agent
+- Serves a landing page named "landing_sink.html"
