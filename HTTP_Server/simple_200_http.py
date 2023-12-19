@@ -16,7 +16,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
         # Send the html message
-        self.wfile.write(b"Hello, this is a GET request. Add your response here.")
+        self.wfile.write(b"Hello, this is a GET")
 
     def handle_request(self):
         content_length = int(self.headers['Content-Length'])
