@@ -3,7 +3,7 @@ import os
 def save_rule(rule_content, rule_name, output_dir):
     filename = f"{rule_name.replace(' ', '_').replace(':', '_')}.yar"
     with open(os.path.join(output_dir, filename), 'w') as file:
-        file.write('\n'.join(rule_content))
+        file.write(''.join(rule_content))
 
 def parse_forge(input_file, output_dir):
 # Parsing the combined file
@@ -16,25 +16,25 @@ def parse_forge(input_file, output_dir):
         comment_block = False
 
         for line in file:
-            stripped_line = line.strip()
+            line = line.strip()
 
-            if stripped_line.startswith('/*'):
+            if line.strip().startswith('/*'):
                 comment_block = True
-            if stripped_line.endswith('*/'):
+            if line.strip().endswith('*/'):
                 comment_block = False
                 continue
 
-            if comment_block or stripped_line == '':
+            if comment_block or line.strip() == '':
                 continue
 
-            if stripped_line.startswith('rule '):
+            if line.startswith('rule '):
                 if rule_content:
                     save_rule(rule_content, rule_name, output_dir)
                     rule_content = []
-                rule_name = stripped_line.split()[1].split(':')[0]
-                rule_content.append(stripped_line)
+                rule_name = line.split()[1].split(':')[0]
+                rule_content.append(line)
             elif rule_content:
-                rule_content.append(stripped_line)
+                rule_content.append(line)
 
         if rule_content:
             save_rule(rule_content, rule_name, output_dir)
