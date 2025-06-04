@@ -4,6 +4,7 @@ Hope that helps.
 
 ## Usage
 input file is feed_data.json
+
 output file is output.csv
 
 ```python json2csv.py```
